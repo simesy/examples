@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Ctools Exportables example module.
+ */
+
+/**
+ * Implements hook_schema().
+ *
+ * Define the database tables used by this module.
+ *
+ * @see hook_schema()
+ */
+function eg_exportable_schema() {
+
+  $schema['exportable_stuff'] = array(
+    'description' => 'Stores basic data for demonstrating Exportables.',
+
+    // Information about how this record is exported to an object.
+    'export' => array(
+      'key' => 'name', // Corresponds to the field that represents the unique string name.
+      'key name' => 'Name',
+      'primary key' => 'oid', // Corresponds to the field that is the primary key of the table, which will usually be a numeric key.
+      'identifier' => 'myobj', // Exports will be as $myobj
+      'default hook' => 'default_exportable_stuff',  // Function hook name.
+      'api' => array(
+        'owner' => 'ddu',
+        'api' => 'default_exportable_stuff',  // Base name for api include files.
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+
+    // The traditional fields you see in hook_schema.
+    'fields' => array(
+      'oid' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'The numeric ID of the record/object defined by the database.',
+        'no export' => TRUE,
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => '32',
+        'default' => '',
+        'not null' => TRUE,
+        'description' => 'The unique name of this record/object. May only be alphanumeric characters plus underscores.',
+      ),
+      'surname' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Last name of the person.',
+      ),
+      'age' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => 'The age of the person in years.',
+      ),
+      'data' => array(
+        'type' => 'blob',
+        'description' => 'A serialized array of data relevant to this object.',
+        'serialize' => TRUE,
+        'serialized default' => 'a:0:{}',
+      ),
+    ),
+    'primary key' => array('oid'),
+  );
+
+  return $schema;
+}

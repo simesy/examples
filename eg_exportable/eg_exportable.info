@@ -1,0 +1,10 @@
+; $Id:$
+name = Ctools Exportables Example
+description = Basic demonstration module showing how to use the Ctools Exportables
+core = 7.x
+dependencies[] = ctools
+
+files[] = ddu.install
+files[] = ddu.module
+
+

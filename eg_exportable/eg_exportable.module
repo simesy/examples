@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory
+ *
+ * Tell Ctools where the plugin files are that will help expose our exportable stuff to the built in
+ * Ctools Export UI tools.
+ */
+function eg_exportable_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && $plugin == 'export_ui') {
+//    return 'plugins/export_ui';
+  }
+}
+
+/**
+ * Edit form for our record/object.
+ */
+function exportable_stuff_form(&$form, $form_state) {
+  $form['info'] = array(
+    '#type' => 'html',
+    '#value' => t('<p>Here you can define an edit form for the exportable thing being edited</p>'),
+  );
+}
+
+/**
+ * Validate handler for above.
+ */
+function exportable_stuff_form_validate(&$form, $form_state) {
+}
+
+/**
+ * Submit handler for above.
+ */
+function exportable_stuff_form_submit(&$form, $form_state) {
+}
