@@ -9,6 +9,8 @@
 /**
  * Extend Ctools Export UI class.
  */
-class ddu_export_ui extends ctools_export_ui {
+class eg_exportables_export_ui extends ctools_export_ui {
+
+  // This is beyond the example but all the funky loading saving listing stuff can go on here.
 
 }

@@ -25,7 +25,7 @@ function eg_exportable_schema() {
       'identifier' => 'myobj', // Exports will be as $myobj
       'default hook' => 'default_exportable_stuff',  // Function hook name.
       'api' => array(
-        'owner' => 'ddu',
+        'owner' => 'eg_exportable',
         'api' => 'default_exportable_stuff',  // Base name for api include files.
         'minimum_version' => 1,
         'current_version' => 1,

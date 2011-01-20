@@ -6,6 +6,7 @@
  * Define the export UI for an existing exportable.
  * It apparently doesn't matter what this file is called as long as it's in the right directory
  * per hook_ctools_plugin_directory()
+ */
 $plugin = array(
   // The name of the table as found in the schema in hook_install.
   'schema' => 'exportable_stuff',
@@ -24,5 +25,12 @@ $plugin = array(
     'menu description' => 'Import and export some exportable stuff from exportable_stuff table.',
   ),
 
+  // The forms are in the main module. We don't utilize them in the example but leaving this
+  // here as a hint for further discovery.
+  'form' => array(
+    'settings' => 'exportable_stuff_form',
+    'validate' => 'exportable_stuff_form_validate',
+    'submit' => 'exportable_stuff_form_submit',
+  ),
+
 );
- */

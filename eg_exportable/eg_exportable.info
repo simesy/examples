@@ -1,10 +1,11 @@
 ; $Id:$
-name = Ctools Exportables Example
+name = Exportable stuff
 description = Basic demonstration module showing how to use the Ctools Exportables
 core = 7.x
 dependencies[] = ctools
 
-files[] = ddu.install
-files[] = ddu.module
-
+files[] = eg_exportable.module
+files[] = eg_exportable.install
+files[] = plugins/export_ui/export_ui.inc
+files[] = plugins/export_ui/export_ui.class.php
 
